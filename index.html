@@ -144,26 +144,59 @@
                 </div>
             </section>
 
-            <!-- STEP 2: AI Data Generation -->
+            <!-- STEP 2: AI Data Generation & SQL Cheat Code -->
             <section class="quest-card" id="step-2">
-                <span class="quest-step-badge">שלב 2: יצירת נתונים באמצעות בינה מלאכותית (AI)</span>
-                <h2>ג׳נרוט נתונים חכם בעזרת AI 🤖</h2>
-                <p class="subtitle">כדי שנוכל לנתח נתונים ב-Tableau, אנו זקוקים למאגר נתונים רחב ומציאותי. לשם כך נשתמש בבינה מלאכותית.</p>
+                <span class="quest-step-badge">שלב 2: יצירת נתונים, SQL ו-Guardrails</span>
+                <h2>איך מגדירים KPI, ואיך ״מרמים״ (חוקית) בעזרת SQL ו-AI? 🤖</h2>
+                <p class="subtitle">לא זורקים סתם נתונים. נלמד את שיטת העבודה הנכונה להגדרת מדדי הצלחה (KPIs) ולג׳נרוט מאגר מנצח ללא הזיות נתונים!</p>
 
-                <p>פנייה נכונה ל-AI (כמו Claude או ChatGPT) תאפשר לכם להפיק קובץ CSV או טבלה מוכנה עם מאות שורות של עסקאות, משתמשים והתנהגויות. הנה קונספט פרומפט מנצח שבנינו עבורכם!</p>
-
+                <!-- YUNAS SAUSAGE CARICATURE -->
+                <div class="yunas-sausage-box" style="display: flex; gap: 1.5rem; background: var(--color-warning-light); border-radius: var(--border-radius-md); padding: 1.5rem; margin-bottom: 2rem; align-items: center; border: 1px solid rgba(245, 158, 11, 0.3);">
+                    <img src="yunas_sausage.png" alt="יונס אוכל נקניקיה" style="width: 150px; height: 150px; border-radius: var(--border-radius-sm); border: 3px solid white; box-shadow: var(--shadow-sm); object-fit: cover;">
+                    <div>
+                        <h3 style="font-weight: 900; color: #b45309; margin-bottom: 0.25rem;">יונס בדילמה עמוקה:</h3>
+                        <p style="font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.6;">
+                            <strong>יונס אוכל נקניקייה ענקית ותוהה:</strong> "רגע... איך לעזאזל אני מחבר את טבלת הלקוחות עם טבלת העסקאות ב-SQL ומסביר ל-AI בדיוק מה לעשות בלי שהוא יתחיל להזות לי נתונים ריקים?!"
+                        </p>
                     </div>
                 </div>
 
-                <div class="learning-prompt-container">
+                <!-- KPI BUILDING GUIDE -->
+                <div style="background: white; border: 1px solid #cbd5e1; border-radius: var(--border-radius-md); padding: 1.5rem; margin-bottom: 2rem;">
+                    <h3 style="font-weight: 800; color: var(--color-primary); margin-bottom: 0.75rem;">🪜 המדריך לבניית מדד הצלחה (KPI) שלב אחר שלב:</h3>
+                    <ol style="padding-right: 1.25rem; font-size: 0.95rem; line-height: 1.7;">
+                        <li><strong>הגדרה עסקית:</strong> מהי מטרת המוצר? (למשל: ב-FitQuest - להגדיל מעורבות באימונים).</li>
+                        <li><strong>בחירת המדד (Metric):</strong> מה מודד את ההצלחה הזו? (למשל: שיעור המרה מרכישות סך הכל).</li>
+                        <li><strong>שיטת החישוב (SQL / Calculated Field):</strong> הגדרת הנוסחה המדויקת שממירה נתונים גולמיים למדד אסטרטגי.</li>
+                    </ol>
+                </div>
+
+                <!-- THE SQL "CHEAT CODE" EXPLANATION -->
+                <h3 style="font-weight: 800; border-right: 4px solid var(--color-success); padding-right: 0.75rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">🤫 הטיפ הסודי: לרמות בצורה חוקית בעזרת סכמת SQL!</h3>
+                <p style="margin-bottom: 1.5rem;">אם תבקשו מה-AI סתם "תמציא לי נתונים", תקבלו ערבוביה של נתונים חסרי קשר. כדי לקבל תוצאה מושלמת, אנו <strong>מזינים ל-AI את הגדרות ה-SQL של הטבלאות המקוריות שלנו</strong> (CREATE TABLE) ומבקשים ממנו לבצע ביניהן JOIN ולוגיקת איחוד, ואז לג׳נרט קובץ אחד מאוחד המכיל את כל העמודות הרלוונטיות לדשבורד!</p>
+
+                <div class="learning-alert learning-alert-tip">
+                    <span class="learning-alert-icon">🛡️</span>
+                    <div>
+                        <strong>הגדרת Guardrails (מגבלות הגנה):</strong> כדי למנוע מה-AI "להזות" נתונים מומצאים, אנו מכניסים תנאים קשיחים לפרומפט (למשל: "סכום הרכישה חייב להיות חיובי בין 49 ל-499 ש"ח בלבד", או "תאריכי העסקאות חייבים להיות בטווח של שנת 2026 בלבד"). זה מבטיח שלמות נתונים מקסימלית!
+                    </div>
+                </div>
+
+                <div class="learning-prompt-container" style="margin-top: 2rem;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                        <h4 style="font-weight: 700; color: var(--text-primary); margin: 0;">📋 פרומפט העתק-הדבק מנצח ל-AI:</h4>
+                        <h4 style="font-weight: 700; color: var(--text-primary); margin: 0;">📋 פרומפט SQL & Guardrails משולב להעתקה:</h4>
                         <button class="btn-copy" data-target="ai-prompt-box">העתק פרומפט 📋</button>
                     </div>
-                    <pre class="prompt-box" id="ai-prompt-box">
-עבור אפליקציית FitQuest (אפליקציית כושר ואימונים חכמה), אנא ג'נרט לי קובץ נתונים במבנה טבלאי (CSV) של 20 שורות.
-העמודות הנדרשות הן: Transaction_ID, Customer_Name, Transaction_Date, Platform (מובייל או ווב), Amount_Paid_ILS, Device_Browser.
-הקפד על ערכים הגיוניים, מגוונים וריאליסטיים המתאימים לתעשייה, אך שלב בדיוק 4 שורות עם שגיאות נתונים קריטיות (כמו ערכים שליליים, תאריכים עתידיים, חוסר עקביות בין פלטפורמה לדפדפן או מזהים ריקים) כדי שנוכל לתרגל בקרת איכות.
+                    <pre class="prompt-box" id="ai-prompt-box" style="font-size: 0.85rem;">
+לפניך סכמת ה-SQL של מערכת FitQuest:
+CREATE TABLE Users (User_ID INT, Customer_Name VARCHAR(50), Platform VARCHAR(10));
+CREATE TABLE Payments (Transaction_ID INT, User_ID INT, Amount_Paid_ILS INT, Transaction_Date DATE, Device_Browser VARCHAR(20));
+
+בצע INNER JOIN לוגי בין שתי הטבלאות לפי מפתח משותף User_ID, וג׳נרט לי טבלה אחת מאוחדת ומורחבת (Crosstab) של 20 שורות במבנה CSV המייצגת את נתוני הדשבורד.
+החל את ה-Guardrails הבאים:
+1. עמודת Amount_Paid_ILS חייבת להכיל ערכים חיוביים בלבד בין 49 ל-499.
+2. עמודת Transaction_Date חייבת להיות בתאריכים הגיוניים בשנת 2026 בלבד.
+3. שלב בדיוק 4 שורות עם חריגות ספציפיות לצורך תרגול בקרת איכות (QC) של הסטודנטים.
                     </pre>
                 </div>
             </section>
