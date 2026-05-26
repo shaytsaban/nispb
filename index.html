@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניתוח והצגת מדדים עסקיים - לומדה אינטראקטיבית</title>
+    <meta name="description" content="לומדה מונפשת ואינטראקטיבית לסטודנטים המסבירה כיצד לתכנן, לג׳נרט, לבקר ולהציג מדדים עסקיים ו-KPI's בעזרת AI וכללי Tableau.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Canvas for Fireworks celebrations -->
+    <canvas id="fireworksCanvas"></canvas>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon">M</div>
+            <div class="logo-text">
+                <h1>ניתוח והצגת מדדים עסקיים</h1>
+                <p>לומדה אינטראקטיבית לפיתוח וניהול מוצר • נספח ב׳</p>
+            </div>
+        </div>
+        <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <button class="audio-control" id="musicToggle" title="הפעל/השתק מוזיקת רקע">
+                <span id="musicIcon">🎵</span>
+                <span id="musicText">נגן מוזיקה</span>
+            </button>
+            <button class="audio-control" id="audioToggle" title="הפעל/השתק צלילים בלומדה">
+                <span id="audioIcon">🔊</span>
+                <span id="audioText">סאונד פעיל</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Layout Container -->
+    <div class="app-container">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-title">שלבי המשימה</div>
+            <nav class="nav-list">
+                <div class="nav-item active" data-step="1">
+                    <span>1. מבוא ועקרונות יסוד</span>
+                    <div class="nav-item-status"></div>
+                </div>
+                <div class="nav-item" data-step="2">
+                    <span>2. יצירת נתונים ב-AI</span>
+                    <div class="nav-item-status"></div>
+                </div>
+                <div class="nav-item" data-step="3">
+                    <span>3. בקרת איכות (QC)</span>
+                    <div class="nav-item-status"></div>
+                </div>
+                <div class="nav-item" data-step="4">
+                    <span>4. הגדרת תרשימים עסקית</span>
+                    <div class="nav-item-status"></div>
+                </div>
+                <div class="nav-item" data-step="5">
+                    <span>5. סימולטור דשבורד חי</span>
+                    <div class="nav-item-status"></div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+
+            <!-- STEP 1: Introduction & Foundations -->
+            <section class="quest-card active" id="step-1">
+                <span class="quest-step-badge">שלב 1: מבוא, תרשים זרימה ועקרונות יסוד</span>
+                <h2>ברוך הבא למסע המדדים העסקיים שלך! 🚀</h2>
+                <p class="subtitle">כאן נלמד איך לקחת מוצר, לזקק עבורו את מדדי ההצלחה (KPIs) ולהציג אותם בצורה מקצועית ב-Tableau.</p>
+                
+                <!-- YUNAS CARICATURE HERO -->
+                <div class="yunas-hero-container" style="display: flex; gap: 1.5rem; background: var(--color-primary-light); border-radius: var(--border-radius-md); padding: 1.5rem; margin-bottom: 2rem; align-items: center; border: 1px solid rgba(99,102,241,0.25);">
+                    <img src="yunas_mascot.png" alt="יונס המנהל האגדי" style="width: 140px; height: 140px; border-radius: 50%; border: 4px solid white; box-shadow: var(--shadow-md); object-fit: cover;">
+                    <div>
+                        <h3 style="font-weight: 900; color: var(--color-primary); margin-bottom: 0.25rem;">יונס ("החולם") מעדכן מהשטח:</h3>
+                        <blockquote style="font-style: italic; font-weight: 700; font-size: 1.05rem; color: var(--text-primary); border-right: 4px solid var(--color-primary); padding-right: 0.75rem; margin: 0.5rem 0;">
+                            "וואו, אין כמו ניהול מוצר עם רויטל ורונית! החלום שלייייייייי! 😍 לעשות דשבורדים מנצנצים ב-Tableau עם calculated fields זה פשוט רמה אחרת!"
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div class="learning-alert learning-alert-note">
+                    <span class="learning-alert-icon">📖</span>
+                    <div>
+                        <strong>שימוש בחומרי השיעור:</strong> כדי להשיג את הציונים הטובים ביותר, עליך להשתמש בעקרונות ובידע שרכשת בלומדה שעשינו בכיתה. אל תמציא הגדרות מחדש - התבסס על המבנה האסטרטגי שנלמד.
+                    </div>
+                </div>
+
+                <!-- NEW SECTION: Detailed Requirements & Visual Workflow -->
+                <h3 style="font-weight: 800; border-right: 4px solid var(--color-info); padding-right: 0.75rem; margin-top: 2rem; margin-bottom: 1rem;">🎯 מטרות הלומדה ומסמך הדרישות המהותי</h3>
+                <p>כדי שלא נבנה תרשימים בצורה עיוורת, נגדיר תחילה את <strong>מפת הזרימה של הנתונים</strong> ואת הכלים שבהם נשתמש בתוך Tableau:</p>
+
+                <!-- Visual Flowchart -->
+                <div class="flowchart-container" style="background: var(--bg-accent); padding: 1.5rem; border-radius: var(--border-radius-md); border: 1px solid #cbd5e1; margin-bottom: 2rem; text-align: center;">
+                    <div style="font-weight: 800; color: var(--text-primary); margin-bottom: 1rem; font-size: 1rem;">🗺️ תרשים זרימת תהליך פיתוח דשבורד KPIs</div>
+                    <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 0.75rem; font-family: var(--font-english); font-weight: 700; font-size: 0.85rem;">
+                        <div style="background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 2px solid var(--color-primary);">1. AI Mock Data (CSV)</div>
+                        <div style="color: var(--text-muted);">➡️</div>
+                        <div style="background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 2px solid var(--color-danger);">2. Quality Control (QC)</div>
+                        <div style="color: var(--text-muted);">➡️</div>
+                        <div style="background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 2px solid var(--color-warning);">3. Calculated Fields</div>
+                        <div style="color: var(--text-muted);">➡️</div>
+                        <div style="background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 2px solid var(--color-success);">4. Tableau Charts & Filters</div>
+                        <div style="color: var(--text-muted);">➡️</div>
+                        <div style="background: white; padding: 0.75rem 1rem; border-radius: 8px; border: 2px solid var(--color-info);">5. Export to PM Report</div>
+                    </div>
+                </div>
+
+                <!-- Tableau parameters showcase -->
+                <div style="background: #fff; border: 1px solid #cbd5e1; border-radius: var(--border-radius-md); padding: 1.5rem; margin-bottom: 2rem;">
+                    <h4 style="font-weight: 800; color: var(--text-primary); margin-bottom: 0.75rem;">🛠️ ארגז הכלים המקצועי שלך ב-Tableau:</h4>
+                    <ul style="padding-right: 1.25rem; font-size: 0.95rem; line-height: 1.7;">
+                        <li><strong>Pages Shelf:</strong> ליצירת הנפשה לאורך זמן (לדוגמה, צפייה במגמת ה-Retention מחודש לחודש בצורה מונפשת).</li>
+                        <li><strong>Filters Shelf:</strong> סינון מהיר של פלטפורמה (מובייל / ווב) או קטגוריית מנוי כדי לתת מענה לשאלות עסקיות ממוקדות.</li>
+                        <li><strong>Marks Card:</strong> שינוי צבעים (Color), גדלים (Size) ותוויות (Label) כדי להבליט את החלקים החשובים ולהקל על קריאת התרשים.</li>
+                        <li><strong>Calculated Fields:</strong> יצירת מדדים מתמטיים מורכבים (כמו שיעור המרה ו-ARPU) שלא קיימים בטבלאות הגולמיות.</li>
+                    </ul>
+                </div>
+
+                <p>ניתוח מדדים עסקיים הוא הלב של ניהול המוצר. ללא הבנת המדדים, מנהלי מוצר מגששים באפלה. במשימה זו נלמד כיצד לבנות שני דשבורדים עיקריים:</p>
+                <ul>
+                    <li><strong>דשבורד למנהלי מוצר (PM Dashboard):</strong> לצורך מעקב אחרי KPIs גלובליים, התנהגות ואסטרטגיה עסקית.</li>
+                    <li><strong>דשבורד למשתמשי המוצר (End-User Dashboard):</strong> הצגת נתונים מותאמים אישית לפעילות המשתמש במערכת כדי לשפר את המעורבות שלו.</li>
+                </ul>
+
+                <!-- Interactive Mini-Quiz to test baseline understanding -->
+                <div class="quiz-container">
+                    <div class="quiz-question">שאלה לבדיקת הבנה: מהי המטרה המרכזית של "דשבורד למנהלי מוצר"?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-correct="false">
+                            <span>א. להציג למשתמש הקצה כמה שעות הוא בילה באפליקציה השבוע.</span>
+                        </div>
+                        <div class="quiz-option" data-correct="true">
+                            <span>ב. לאפשר למקבלי החלטות לעקוב אחר מדדי הצלחה (KPIs) אסטרטגיים, פילוחים וביצועי המוצר.</span>
+                        </div>
+                        <div class="quiz-option" data-correct="false">
+                            <span>ג. להחליף את עיצוב ה-UI הקיים של האפליקציה בגרפיקה חדשה.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STEP 2: AI Data Generation -->
+            <section class="quest-card" id="step-2">
+                <span class="quest-step-badge">שלב 2: יצירת נתונים באמצעות בינה מלאכותית (AI)</span>
+                <h2>ג׳נרוט נתונים חכם בעזרת AI 🤖</h2>
+                <p class="subtitle">כדי שנוכל לנתח נתונים ב-Tableau, אנו זקוקים למאגר נתונים רחב ומציאותי. לשם כך נשתמש בבינה מלאכותית.</p>
+
+                <p>פנייה נכונה ל-AI (כמו Claude או ChatGPT) תאפשר לכם להפיק קובץ CSV או טבלה מוכנה עם מאות שורות של עסקאות, משתמשים והתנהגויות. הנה קונספט פרומפט מנצח שבנינו עבורכם!</p>
+
+                    </div>
+                </div>
+
+                <div class="learning-prompt-container">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h4 style="font-weight: 700; color: var(--text-primary); margin: 0;">📋 פרומפט העתק-הדבק מנצח ל-AI:</h4>
+                        <button class="btn-copy" data-target="ai-prompt-box">העתק פרומפט 📋</button>
+                    </div>
+                    <pre class="prompt-box" id="ai-prompt-box">
+עבור אפליקציית FitQuest (אפליקציית כושר ואימונים חכמה), אנא ג'נרט לי קובץ נתונים במבנה טבלאי (CSV) של 20 שורות.
+העמודות הנדרשות הן: Transaction_ID, Customer_Name, Transaction_Date, Platform (מובייל או ווב), Amount_Paid_ILS, Device_Browser.
+הקפד על ערכים הגיוניים, מגוונים וריאליסטיים המתאימים לתעשייה, אך שלב בדיוק 4 שורות עם שגיאות נתונים קריטיות (כמו ערכים שליליים, תאריכים עתידיים, חוסר עקביות בין פלטפורמה לדפדפן או מזהים ריקים) כדי שנוכל לתרגל בקרת איכות.
+                    </pre>
+                </div>
+            </section>
+
+            <!-- STEP 3: Quality Control (QC) -->
+            <section class="quest-card" id="step-3">
+                <span class="quest-step-badge">שלב 3: בקרת איכות (QC) על נתוני ה-AI</span>
+                <h2>משחק בקרת איכות: מצא את ה"הזיות" 🕵️‍♂️</h2>
+                <p class="subtitle">בינה מלאכותית היא כלי מדהים, אך לפעמים היא מייצרת נתונים לא הגיוניים ("הזיות"). תפקידנו לבצע בקרת איכות קפדנית לפני טעינת הנתונים ל-Tableau!</p>
+
+                <div class="learning-alert learning-alert-important">
+                    <span class="learning-alert-icon">⚠️</span>
+                    <div>
+                        <strong>המשימה שלך:</strong> לפניך טבלת הנתונים שנוצרה ב-AI. יש בה <strong>4 שגיאות קריטיות</strong>.
+                        עבור על הטבלה ולחץ על השורות הבעייתיות כדי לנקות אותן!
+                        מזהה שגיאות נוכחי: <span id="qc-score-val" style="font-weight: 800; color: var(--color-primary);">0</span> מתוך 4.
+                    </div>
+                </div>
+
+                <div class="qc-table-container">
+                    <table class="qc-table">
+                        <thead>
+                            <tr>
+                                <th>מזהה עסקה</th>
+                                <th>שם לקוח</th>
+                                <th>תאריך</th>
+                                <th>פלטפורמה</th>
+                                <th>סכום</th>
+                                <th>מכשיר</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="qc-row-clickable" id="qc-row-1">
+                                <td>TX-2001</td>
+                                <td>אלון ישראלי</td>
+                                <td>2026-04-12</td>
+                                <td>מובייל</td>
+                                <td>₪89</td>
+                                <td>iOS Safari</td>
+                            </tr>
+                            <tr class="qc-row-clickable" id="qc-row-2">
+                                <td>TX-2002</td>
+                                <td>נועה כהן</td>
+                                <td>2026-04-15</td>
+                                <td>ווב</td>
+                                <td style="color: var(--color-danger); font-weight: 700;">₪-250</td>
+                                <td>Chrome Desktop</td>
+                            </tr>
+                            <tr class="qc-row-clickable" id="qc-row-3">
+                                <td>TX-2003</td>
+                                <td>גיא מנור</td>
+                                <td>2026-05-01</td>
+                                <td>ווב</td>
+                                <td>₪349</td>
+                                <td>Firefox</td>
+                            </tr>
+                            <tr class="qc-row-clickable" id="qc-row-4">
+                                <td>TX-2004</td>
+                                <td>טלי רייך</td>
+                                <td style="color: var(--color-danger); font-weight: 700;">2028-12-15</td>
+                                <td>מובייל</td>
+                                <td>₪49</td>
+                                <td>Android WebView</td>
+                            </tr>
+                            <tr class="qc-row-clickable" id="qc-row-5">
+                                <td>TX-2005</td>
+                                <td>רון שחר</td>
+                                <td>2026-05-10</td>
+                                <td>מובייל</td>
+                                <td>₪89</td>
+                                <td>iOS Safari</td>
+                            </tr>
+                            <tr class="qc-row-clickable" id="qc-row-6">
+                                <td>TX-2006</td>
+                                <td>מיכל חסון</td>
+                                <td>2026-05-12</td>
+                                <td style="color: var(--color-danger); font-weight: 700;">מובייל</td>
+                                <td>₪349</td>
+                                <td style="color: var(--color-danger); font-weight: 700;">Chrome Desktop</td>
+                            </tr>
+                            <tr class="qc-row-clickable" id="qc-row-7">
+                                <td>TX-2007</td>
+                                <td>עידן צור</td>
+                                <td>2026-05-20</td>
+                                <td>ווב</td>
+                                <td>₪499</td>
+                                <td>Safari Desktop</td>
+                            </tr>
+                            <tr class="qc-row-clickable" id="qc-row-8">
+                                <td>TX-2008</td>
+                                <td style="color: var(--color-danger); font-weight: 700;">[ריק / NULL]</td>
+                                <td>2026-05-22</td>
+                                <td>ווב</td>
+                                <td>₪180</td>
+                                <td>Edge Desktop</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="qc-explanation" id="qc-explanation-area">
+                    <span>לחץ על שורה עם נתון שגוי או לא סביר כדי לנקות את הנתונים...</span>
+                    <div id="qc-explanation-text" style="font-weight: 700; margin-top: 0.5rem;"></div>
+                </div>
+            </section>
+
+            <!-- STEP 4: Business Definition of Charts -->
+            <section class="quest-card" id="step-4">
+                <span class="quest-step-badge">שלב 4: הגדרה מהותית ועסקית של תרשימים</span>
+                <h2>הגדרת תרשימים ברמה המהותית והעסקית 📊</h2>
+                <p class="subtitle">אל תזרקו סתם תרשימים ללוח. כל תרשים בדשבורד שלכם חייב לענות על שאלה עסקית קונקרטית מתוך חזון המוצר.</p>
+
+                <!-- Before/After Segment -->
+                <div class="ba-container">
+                    <div class="ba-card bad">
+                        <div class="ba-badge bad">ללא פילטר עסקי ❌</div>
+                        <h3>תרשים סתמי</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">תרשים עוגה שמראה "סך הכל עסקאות לפי צבע כפתור".</p>
+                        <div class="chart-mockup">
+                            <div class="chart-bar" style="height: 40px;"></div>
+                            <div class="chart-bar" style="height: 110px;"></div>
+                            <div class="chart-bar" style="height: 70px;"></div>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);"><strong>תוצאה:</strong> הנהלה לא מבינה מה הערך ואיך זה משפיע על קבלת ההחלטות שלה.</p>
+                    </div>
+
+                    <div class="ba-card good">
+                        <div class="ba-badge good">מהותי ועסקי (KPI)  ✓</div>
+                        <h3>תרשים ממוקד מטרה</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">תרשים פילוח לפי "שיעור המרה ושימור משתמשים לפי פלטפורמה".</p>
+                        <div class="chart-mockup">
+                            <div class="chart-bar" style="height: 140px;"></div>
+                            <div class="chart-bar" style="height: 80px;"></div>
+                            <div class="chart-bar" style="height: 160px;"></div>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);"><strong>תוצאה:</strong> מאפשר למנהל המוצר להבין מיידית איפה לשפר את הממשק (UI) כדי להגדיל הכנסות.</p>
+                    </div>
+                </div>
+
+                <!-- NEW: Interactive Chart Decision Maker -->
+                <h3 style="font-weight: 800; margin-top: 2.5rem; margin-bottom: 0.5rem; border-right: 4px solid var(--color-primary); padding-right: 0.75rem;">מדריך בחירת תרשימים אינטראקטיבי 🧭</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">בחר את השאלה העסקית שברצונך לחקור ולחץ עליה כדי לראות את התרשים המתאים, צורת הפירוש שלו, ומתי הוא משמש את החברות המובילות בעולם:</p>
+
+                <div class="chart-select-grid">
+                    <button class="chart-select-btn active" id="btn-chart-line" onclick="selectChartGuide('line')">
+                        <span class="chart-select-btn-title">📈 שינוי ומגמה לאורך זמן</span>
+                        <span class="chart-select-btn-desc">איך מדדי ההכנסות או משתמשים משתנים מדי חודש?</span>
+                    </button>
+                    <button class="chart-select-btn" id="btn-chart-bar" onclick="selectChartGuide('bar')">
+                        <span class="chart-select-btn-title">📊 השוואה בין קטגוריות</span>
+                        <span class="chart-select-btn-desc">איזו פלטפורמה או מנוי הכניסו הכי הרבה כסף?</span>
+                    </button>
+                    <button class="chart-select-btn" id="btn-chart-pie" onclick="selectChartGuide('pie')">
+                        <span class="chart-select-btn-title">🍰 פילוח חלק מתוך השלם</span>
+                        <span class="chart-select-btn-desc">מהו נתח השוק היחסי של כל סוג מנוי במערכת?</span>
+                    </button>
+                    <button class="chart-select-btn" id="btn-chart-scatter" onclick="selectChartGuide('scatter')">
+                        <span class="chart-select-btn-title">🎯 קשר בין משתנים וחריגים</span>
+                        <span class="chart-select-btn-desc">האם זמן שימוש ארוך גורר קנייה בסכום גבוה יותר?</span>
+                    </button>
+                </div>
+
+                <!-- Interactive Chart Details Box -->
+                <div class="chart-detail-box" id="chart-detail-panel">
+                    <div class="chart-detail-header" style="border-bottom: 1px solid var(--bg-accent); padding-bottom: 1rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                        <div>
+                            <div class="chart-detail-title" id="chart-detail-title" style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary);">תרשים קו (Line Chart)</div>
+                            <span class="chart-detail-badge" id="chart-detail-badge" style="background: var(--color-primary-light); color: var(--color-primary); font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 50px;">שינוי לאורך זמן</span>
+                        </div>
+                        <div id="chart-visual-preview" class="chart-visual-preview" style="width: 180px; height: 80px; border-radius: var(--border-radius-sm); display: flex; align-items: center; justify-content: center; background: var(--bg-accent); overflow: hidden; border: 1px solid #e2e8f0;">
+                            <div class="chart-vector-line"></div>
+                        </div>
+                    </div>
+
+                    <div class="chart-detail-content-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                        <div class="chart-detail-item">
+                            <div class="chart-detail-item-title">💼 צורך עסקי ומהותי</div>
+                            <div class="chart-detail-item-desc" id="chart-detail-business">הצורך לעקוב אחר צמיחה או דעיכה של מדדים (כמו הכנסות או כמות נרשמים חדשים) לאורך ציר זמן רציף ומוגדר (ימים, שבועות, חודשים).</div>
+                        </div>
+                        <div class="chart-detail-item">
+                            <div class="chart-detail-item-title">🧠 איך מפרשנים?</div>
+                            <div class="chart-detail-item-desc" id="chart-detail-interpretation">מנהל מוצר מחפש "שיאים ושפלים" עונתיים, ומזהה מגמות צמיחה לטווח רחוק. תפניות פתאומיות כלפי מטה מעידות על תקלה טכנית או עדכון גרסה כושל.</div>
+                        </div>
+                        <div class="chart-detail-item">
+                            <div class="chart-detail-item-title">🏭 דוגמה מהתעשייה</div>
+                            <div class="chart-detail-item-desc" id="chart-detail-industry"><strong>Netflix</strong> משתמשת בתרשימי קו כדי לעקוב אחר שעות הצפייה הממוצעות של משתמש לפי חודש הרישום שלו.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW: Tableau Formula Assembly Game -->
+                <div class="formula-section-title">משחק הרכבת נוסחאות ב-Tableau 🧩</div>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">בוא נבחן את היכולת שלך לבנות שדות מחושבים (Calculated Fields) ב-Tableau. גרור או לחץ על החלקים בסדר הנכון כדי להרכיב את הנוסחה לחישוב <strong>אחוז המרה (Conversion Rate)</strong>:</p>
+
+                <div class="formula-puzzle-container" style="background: white; border: 1px dashed var(--color-primary); border-radius: var(--border-radius-md); padding: 1.5rem; text-align: center; box-shadow: var(--shadow-sm); margin-bottom: 2rem;">
+                    <div style="font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">המטרה: הרכב נוסחת Calculated Field לשיעור המרה (משתמשים ששילמו / סך משתמשים)</div>
+                    
+                    <!-- Target assembly area -->
+                    <div id="formula-assembly-zone" style="background: var(--bg-accent); border: 2px solid #cbd5e1; min-height: 55px; border-radius: var(--border-radius-sm); display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem; font-family: var(--font-english); font-weight: 700; color: var(--color-primary); font-size: 1.1rem; margin-bottom: 1.5rem;">
+                        <span style="color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">לחץ על חלקי הנוסחה למטה בסדר הנכון כדי להרכיב אותה...</span>
+                    </div>
+
+                    <!-- Puzzle parts pieces -->
+                    <div class="puzzle-pieces-grid" style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem;">
+                        <button class="puzzle-piece-btn" id="part-1" onclick="clickFormulaPart('part-1', 'COUNTD(', 0)">COUNTD(</button>
+                        <button class="puzzle-piece-btn" id="part-2" onclick="clickFormulaPart('part-2', '[Paying_User_ID]', 1)">[Paying_User_ID]</button>
+                        <button class="puzzle-piece-btn" id="part-3" onclick="clickFormulaPart('part-3', ') / COUNTD(', 2)">) / COUNTD(</button>
+                        <button class="puzzle-piece-btn" id="part-4" onclick="clickFormulaPart('part-4', '[All_User_ID]', 3)">[All_User_ID]</button>
+                        <button class="puzzle-piece-btn" id="part-5" onclick="clickFormulaPart('part-5', ')', 4)">)</button>
+                    </div>
+
+                    <button class="btn-secondary" onclick="resetFormulaGame()" style="padding: 0.4rem 1rem; font-size: 0.85rem; border-radius: 50px;">איפוס לוח 🔄</button>
+                    <div id="formula-feedback" style="font-weight: 700; margin-top: 1rem; min-height: 1.5rem;"></div>
+                </div>
+            </section>
+
+            <!-- STEP 5: Interactive System Simulator (Product Managers & End-Users) -->
+            <section class="quest-card" id="step-5">
+                <span class="quest-step-badge">שלב 5: הדמיית דשבורדים (אסטרטגי, תפעולי וטקטי)</span>
+                <h2>סימולטור דשבורדים עסקיים ב-Tableau 🌟</h2>
+                <p class="subtitle">הנה דוגמה חיה לדשבורדים התואמים בדיוק את מה שניתן לייצר בקלות ב-Tableau באמצעות צירים, עמודות, שורות וסקטר-פלוט.</p>
+
+                <!-- WEALTHY PMS CARICATURE -->
+                <div style="display: flex; gap: 1.5rem; background: #fff; border-radius: var(--border-radius-md); padding: 1.5rem; border: 1.5rem solid var(--color-success-light); margin-bottom: 2.5rem; align-items: center; box-shadow: var(--shadow-md);">
+                    <img src="rich_pms.png" alt="חגיגת מנהלי מוצר עשירים" style="width: 150px; height: 150px; border-radius: var(--border-radius-sm); border: 3px solid white; box-shadow: var(--shadow-sm); object-fit: cover;">
+                    <div>
+                        <h3 style="font-weight: 900; color: #15803d; margin-bottom: 0.5rem;">💸 המטרה: להציג נתונים ולהפוך למנהל מוצר עשיר!</h3>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">
+                            שימוש נכון ב-Marks Card, ב-Filters, ובשדות מחושבים יאפשר לכם להראות להנהלה בדיוק איפה הכסף הגדול נמצא. שימו לב להבדלים המהותיים בין סוגי הדשבורדים הבאים שניתן לבנות בקלות:
+                        </p>
+                    </div>
+                </div>
+
+                <!-- TABLEAU DASHBOARD TYPES SHOWCASE -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                    <div style="background: #fff; border: 2px solid var(--color-primary); padding: 1rem; border-radius: var(--border-radius-md);">
+                        <h4 style="font-weight: 800; color: var(--color-primary);">📈 דשבורד אסטרטגי (Strategic)</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+                            מיועד להנהלה הבכירה ומציג מדדי על רבעוניים ושנתיים (כמו סך הכנסות מצטבר Revenue או כמות משתמשים ייחודיים MAU). מבוסס בעיקר על תרשימי קו רציפים להבנת המגמה.
+                        </p>
+                    </div>
+                    <div style="background: #fff; border: 2px solid var(--color-info); padding: 1rem; border-radius: var(--border-radius-md);">
+                        <h4 style="font-weight: 800; color: var(--color-info);">📊 דשבורד טקטי (Tactical)</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+                            מיועד למנהלי מחלקות ומנהלי מוצר לצורך השוואה ופילוחים (למשל: השוואת הכנסות בין מובייל לווב בעמודות, או פילוח חלק מתוך השלם בעזרת Pie). נעשה שימוש כבד ב-Filters.
+                        </p>
+                    </div>
+                    <div style="background: #fff; border: 2px solid var(--color-success); padding: 1rem; border-radius: var(--border-radius-md);">
+                        <h4 style="font-weight: 800; color: var(--color-success);">⚡ דשבורד תפעולי (Operational)</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+                            מעקב בזמן אמת אחרי עסקאות, לוגי שרת ופעולות יומיות של לקוחות קצה. כולל טבלאות נתונים מסודרות ופשוטות של עסקאות אחרונות (בדיוק כמו הסימולטור למטה!).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="sim-container">
+                    <div class="sim-nav">
+                        <button class="sim-nav-btn active" id="sim-btn-pm">דשבורד מנהל מוצר (PM - טקטי ותפעולי)</button>
+                        <button class="sim-nav-btn" id="sim-btn-user">דשבורד משתמש קצה (End-User)</button>
+                    </div>
+
+                    <div class="sim-content">
+                        
+                        <!-- PM View -->
+                        <div id="sim-view-pm">
+                            <div class="sim-controls-bar">
+                                <h3 style="font-weight: 700;">דוח ניהולי ואסטרטגי כולל פילוחים</h3>
+                                <div>
+                                    <label for="sim-segment-filter" style="font-size: 0.9rem; font-weight: 600; margin-left: 0.5rem;">פילוח לפי פלטפורמה:</label>
+                                    <select class="sim-select" id="sim-segment-filter">
+                                        <option value="all">כלל הפלטפורמות (All)</option>
+                                        <option value="mobile">מובייל בלבד (Mobile)</option>
+                                        <option value="web">ווב בלבד (Web)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- KPI Grid -->
+                            <div class="dashboard-grid">
+                                <div class="kpi-card">
+                                    <span class="kpi-label">משתמשים פעילים</span>
+                                    <span class="kpi-value" id="kpi-users">24,580</span>
+                                    <span class="kpi-trend up">▲ +12.4% השבוע</span>
+                                </div>
+                                <div class="kpi-card">
+                                    <span class="kpi-label">שיעור שימור (Retention)</span>
+                                    <span class="kpi-value" id="kpi-retention">48.2%</span>
+                                    <span class="kpi-trend up">▲ +2.1% החודש</span>
+                                </div>
+                                <div class="kpi-card">
+                                    <span class="kpi-label">שיעור המרה (Conversion)</span>
+                                    <span class="kpi-value" id="kpi-conversion">3.4%</span>
+                                    <span class="kpi-trend down">▼ -0.3% אתמול</span>
+                                </div>
+                                <div class="kpi-card">
+                                    <span class="kpi-label">סך הכנסות (Revenue)</span>
+                                    <span class="kpi-value" id="kpi-revenue">₪420,500</span>
+                                    <span class="kpi-trend up">▲ +8.7% החודש</span>
+                                </div>
+                            </div>
+
+                            <!-- Animated Table -->
+                            <h4 style="font-weight: 700; margin-bottom: 1rem;">יומן פעילות ועסקאות מונפש</h4>
+                            <div class="animated-table-container">
+                                <table class="animated-table">
+                                    <thead>
+                                        <tr>
+                                            <th>מזהה</th>
+                                            <th>שם לקוח</th>
+                                            <th>אימייל</th>
+                                            <th>פילוח</th>
+                                            <th>שירות שנרכש</th>
+                                            <th>סכום עסקה</th>
+                                            <th>תאריך</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="sim-table-body">
+                                        <!-- Will be rendered by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- End-User View -->
+                        <div id="sim-view-user" style="display: none;">
+                            <h3 style="font-weight: 700; margin-bottom: 1rem;">המדדים האישיים שלי ב-FitQuest</h3>
+                            <p class="subtitle" style="margin-bottom: 1.5rem;">מראה מידע מותאם אישית למשתמש הקצה, להצגת ערך והתקדמות אישית במוצר.</p>
+                            
+                            <div class="dashboard-grid">
+                                <div class="kpi-card" style="border-color: var(--color-success-light);">
+                                    <span class="kpi-label">שיעורים שהושלמו</span>
+                                    <span class="kpi-value" id="user-lessons" style="color: var(--color-success);">0</span>
+                                    <span class="kpi-trend up">מתוך 15 שיעורים סה"כ</span>
+                                </div>
+                                <div class="kpi-card" style="border-color: var(--color-info-light);">
+                                    <span class="kpi-label">זמן תרגול מצטבר</span>
+                                    <span class="kpi-value" id="user-time" style="color: var(--color-info);">0</span>
+                                    <span class="kpi-trend up">הישג יוצא דופן!</span>
+                                </div>
+                                <div class="kpi-card" style="border-color: var(--color-warning-light);">
+                                    <span class="kpi-label">ציון ממוצע במשימות</span>
+                                    <span class="kpi-value" id="user-score" style="color: var(--color-warning);">0%</span>
+                                    <span class="kpi-trend up">רמה של מקצוען!</span>
+                                </div>
+                            </div>
+
+                            <h4 style="font-weight: 700; margin-bottom: 0.75rem;">הישגים וגביעים שפתחתי:</h4>
+                            <div id="user-badges-list" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                <!-- Badges dynamically loaded -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bottom Navigation Bar -->
+            <div class="navigation-buttons">
+                <button class="btn-secondary" id="btn-prev" style="visibility: hidden;">← חזור לשלב הקודם</button>
+                <button class="btn-primary" id="btn-next">המשך לשלב הבא ←</button>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
