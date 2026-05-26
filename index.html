@@ -148,7 +148,7 @@
             <section class="quest-card" id="step-2">
                 <span class="quest-step-badge">שלב 2: יצירת נתונים, SQL ו-Guardrails</span>
                 <h2>איך מגדירים KPI, ואיך ״מרמים״ (חוקית) בעזרת SQL ו-AI? 🤖</h2>
-                <p class="subtitle">לא זורקים סתם נתונים. נלמד את שיטת העבודה הנכונה להגדרת מדדי הצלחה (KPIs) ולג׳נרוט מאגר מנצח ללא הזיות נתונים!</p>
+                <p class="subtitle">הפקת נתונים היא אסטרטגיה מדויקת. נלמד כעת את מודל 5 השלבים המנצח של מנהלי המוצר המובילים!</p>
 
                 <!-- YUNAS SAUSAGE CARICATURE -->
                 <div class="yunas-sausage-box" style="display: flex; gap: 1.5rem; background: var(--color-warning-light); border-radius: var(--border-radius-md); padding: 1.5rem; margin-bottom: 2rem; align-items: center; border: 1px solid rgba(245, 158, 11, 0.3);">
@@ -171,15 +171,55 @@
                     </ol>
                 </div>
 
-                <!-- THE SQL "CHEAT CODE" EXPLANATION -->
-                <h3 style="font-weight: 800; border-right: 4px solid var(--color-success); padding-right: 0.75rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">🤫 הטיפ הסודי: לרמות בצורה חוקית בעזרת סכמת SQL!</h3>
-                <p style="margin-bottom: 1.5rem;">אם תבקשו מה-AI סתם "תמציא לי נתונים", תקבלו ערבוביה של נתונים חסרי קשר. כדי לקבל תוצאה מושלמת, אנו <strong>מזינים ל-AI את הגדרות ה-SQL של הטבלאות המקוריות שלנו</strong> (CREATE TABLE) ומבקשים ממנו לבצע ביניהן JOIN ולוגיקת איחוד, ואז לג׳נרט קובץ אחד מאוחד המכיל את כל העמודות הרלוונטיות לדשבורד!</p>
-
-                <div class="learning-alert learning-alert-tip">
-                    <span class="learning-alert-icon">🛡️</span>
+                <!-- YUNAS TECH GURU CARICATURE & THE 5-STEP GRADUAL PROCESS -->
+                <div style="display: flex; gap: 1.5rem; background: var(--color-primary-light); border-radius: var(--border-radius-md); padding: 1.5rem; margin-bottom: 2.5rem; align-items: center; border: 1px solid rgba(99,102,241,0.2);">
+                    <img src="yunas_sql_guru.png" alt="יונס גורו הנתונים" style="width: 150px; height: 150px; border-radius: var(--border-radius-sm); border: 3px solid white; box-shadow: var(--shadow-sm); object-fit: cover;">
                     <div>
-                        <strong>הגדרת Guardrails (מגבלות הגנה):</strong> כדי למנוע מה-AI "להזות" נתונים מומצאים, אנו מכניסים תנאים קשיחים לפרומפט (למשל: "סכום הרכישה חייב להיות חיובי בין 49 ל-499 ש"ח בלבד", או "תאריכי העסקאות חייבים להיות בטווח של שנת 2026 בלבד"). זה מבטיח שלמות נתונים מקסימלית!
+                        <h3 style="font-weight: 900; color: var(--color-primary); margin-bottom: 0.5rem;">👨‍💻 תהליך העבודה ההדרגתי של יונס ("SQL Guru"):</h3>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">
+                            שימו לב כיצד אנו מעבירים את ה-AI סדרת שלבים מובנית והדרגתית כדי לייצר מאגר מושלם מבלי לדלג על שום קשר לוגי:
+                        </p>
                     </div>
+                </div>
+
+                <!-- 5 Steps Gradual Showcase -->
+                <div class="gradual-steps-container" style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+                    
+                    <div style="background: white; border: 1px solid #cbd5e1; border-right: 5px solid var(--color-primary); padding: 1.25rem; border-radius: var(--border-radius-sm);">
+                        <h4 style="font-weight: 800; color: var(--color-primary); margin-bottom: 0.25rem;">שלב א׳: זריקת סכמת ה-SQL המלאה אל תוך ה-AI 📁</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                            לא מתחילים מהסברים באוויר. אנו מזינים ל-AI את הגדרת ה-SQL המקורית (CREATE TABLE) של מאגר הנתונים שלנו כדי שהוא יבין את שמות העמודות, סוגי הנתונים (INT, VARCHAR, DATE) והמפתחות הראשיים.
+                        </p>
+                    </div>
+
+                    <div style="background: white; border: 1px solid #cbd5e1; border-right: 5px solid var(--color-info); padding: 1.25rem; border-radius: var(--border-radius-sm);">
+                        <h4 style="font-weight: 800; color: var(--color-info); margin-bottom: 0.25rem;">שלב ב׳: הגדרת קהל היעד והמשתמשים של הנתונים 👥</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                            מסבירים ל-AI מי קורא את הנתונים ומה מטרת העל שלו. לדוגמה: "אנו רוצים לאפשר למנהל המוצר של FitQuest לנתח את שיעורי ההמרה של הרכישות והשימוש באפליקציה".
+                        </p>
+                    </div>
+
+                    <div style="background: white; border: 1px solid #cbd5e1; border-right: 5px solid var(--color-warning); padding: 1.25rem; border-radius: var(--border-radius-sm);">
+                        <h4 style="font-weight: 800; color: var(--color-warning); margin-bottom: 0.25rem;">שלב ג׳: בחירה והגדרה של הטבלאות לצורך הדשבורד 📊</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                            מבקשים מה-AI לזהות ולבחור את הטבלאות שיש להן ערך עסקי לצירוף (JOIN). במקרה שלנו: שילוב של טבלת הלקוחות (Users) יחד עם טבלת העסקאות (Payments) כדי לקבל תמונה מלאה של ההכנסות לפי מאפייני המשתמשים.
+                        </p>
+                    </div>
+
+                    <div style="background: white; border: 1px solid #cbd5e1; border-right: 5px solid var(--color-success); padding: 1.25rem; border-radius: var(--border-radius-sm);">
+                        <h4 style="font-weight: 800; color: var(--color-success); margin-bottom: 0.25rem;">שלב ד׳: הגדרת Guardrails נוקשים למניעת הזיות 🛡️</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                            קובעים מגבלות הגנה נוקשות שימנעו שורות ריקות, תאריכים עתידיים או ערכים שליליים לא חוקיים (למעט השורות החריגות שאנו יוצרים בכוונה עבור משחק ה-QC).
+                        </p>
+                    </div>
+
+                    <div style="background: white; border: 1px solid #cbd5e1; border-right: 5px solid #0ea5e9; padding: 1.25rem; border-radius: var(--border-radius-sm);">
+                        <h4 style="font-weight: 800; color: #0ea5e9; margin-bottom: 0.25rem;">שלב ה׳: בקשת פלט CSV מסודר לאינטגרציה ב-Tableau 💾</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                            מנחים את ה-AI להחזיר פלט CSV טבלאי מדויק ונקי. את הטבלה הגדולה והמאוחדת הזו אנו טוענים ל-Tableau, וממנה מייצרים את כל הגרפים הרלוונטיים המנצנצים שלנו!
+                        </p>
+                    </div>
+
                 </div>
 
                 <div class="learning-prompt-container" style="margin-top: 2rem;">
